@@ -1,8 +1,31 @@
-<p>umigame</p>
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
 
-<% if user_signed_in? %>
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<link rel="stylesheet" type="text/css" href="css/6-6.css">
+</head>
+<body>
+<div id="splash">
+<div id="splash-logo">読み込み中</div>
+<!--/splash--></div>
+<div class="splashbg1"></div>
+<div class="splashbg2"></div>
+<!---画面遷移用-->
+
+  <div id="container">
+  <header id="header">
+    <h1>UmiGame</h1>
+  </header>
+
+  <main>
+  <div id="container"> 
+    <section>
+      <% if user_signed_in? %>
   <div class="">
-    <span><%= current_user.nickname %>
+   <h2>ようこそ、<%="#{current_user.nickname}"%>さん</h2> 
+    <span>
       <ul class="user__info">
         <li>
           <%= link_to "マイページ", "/users/#{current_user.id}/edit" %>
@@ -14,7 +37,21 @@
   </div>
 <% else %>
   <div class="">
+   <h2>ようこそ、ゲストさん<h2>
     <%= link_to "ログイン", new_user_session_path, class: "post" %>
     <%= link_to "新規登録", new_user_registration_path, class: "post" %>
   </div>
 <% end %>
+    <!--/area1--></section>
+    <!--/contaier--></div>
+  <!--/main--></main>
+
+  <footer id="footer">
+  <small>&copy; copyright.</small>
+  </footer>
+    <!--/container--></div> 
+
+<script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+<script src="https://coco-factory.jp/ugokuweb/wp-content/themes/ugokuweb/data/4-2-5/js/4-2-5.js"></script>
+</body>
+</html>

@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<title>6-6 スクロールすると下のエリアがヘッダーにかぶさる</title>
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<!--==============レイアウトを制御する独自のCSSを読み込み===============-->
+<link rel="stylesheet" type="text/css" href="http://coco-factory.jp/ugokuweb/wp-content/themes/ugokuweb/data/move02/6-6/css/reset.css">
+<link rel="stylesheet" type="text/css" href="http://coco-factory.jp/ugokuweb/wp-content/themes/ugokuweb/data/move02/6-6/css/6-6.css">
+</head>
+
+<body>
+<header id="header">
+  <h1>Scroll me</h1>
+</header>
+<div id="container">
+<p>このエリアがスクロールすると上にかぶさります</p> 
+<!--/container--></div> 
+</body>
+</html>
