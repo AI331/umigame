@@ -6,6 +6,7 @@
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
 <link rel="stylesheet" type="text/css" href="css/6-6.css">
 </head>
+
 <body>
 <div id="splash">
 <div id="splash-logo">読み込み中</div>
@@ -33,7 +34,7 @@
         </li>
       </ul>
     </span>
-    <%= link_to "ルームを作成する", '#', class: "post" %>
+    <%= link_to "ルームを作成する", new_room_path, class: "post" %>
     <%= link_to "ルームに参加する", '#', class: "post" %>
   </div>
 <% else %>

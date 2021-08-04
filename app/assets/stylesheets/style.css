@@ -1,5 +1,6 @@
 @charset "utf-8";
 
+/*========= ここからローディング画面のためのCSS ===============*/
 /*========= ローディング画面のためのCSS ===============*/
 #splash {
   position: fixed;
@@ -134,6 +135,7 @@ h2{
   font-size:1.2rem;
   text-align: center;
   margin: 0 0 30px 0;
+  color: white;
 }
 
 p{
@@ -160,11 +162,12 @@ section:nth-child(2n){
   padding:20px;
 }
 
+/*========= ここまでローディング画面のためのCSS ===============*/
 
 
 
 
-
+/*========= ここからスクロールするCSSの記述 ===============*/
 /*========= レイアウトのためのCSS ===============*/
 
 h1{
@@ -208,9 +211,10 @@ h1{
   position: relative;
   z-index:1;
     /*以下はレイアウトのための記述*/
-  background:#FFFFCC;
+  background:#003366;
   text-align: center;
   /*画面遷移の後現れるコンテンツ設定*/
   opacity: 0;/*はじめは透過0に*/
 }
 
+/*========= ここまでスクロールするCSSの記述 ===============*/
