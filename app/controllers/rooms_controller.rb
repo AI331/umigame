@@ -1,5 +1,6 @@
 class RoomsController < ApplicationController
   def index
+    render layout: 'room'
     @user = User.all
   end
 
