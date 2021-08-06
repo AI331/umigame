@@ -27,6 +27,14 @@
     </span>
     <%= link_to "ルームを作成する", new_room_path, class: "post" %>
     <%= link_to "ルームに参加する", '#', class: "post" %>
+      <!-- マイページに記述する可能性 -->
+        <select>
+          <option value="">room一覧</option>
+          <% Room.all.each do |room| %>
+            <option><%= room.name %></option>
+          <% end %>
+        </select>
+        <!-- ここまで -->
   </div>
 <% else %>
   <div class="">
