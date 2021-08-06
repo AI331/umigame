@@ -1,7 +1,8 @@
 @charset "utf-8";
 
+/*========= ここからローディング画面のためのCSS ===============*/
 /*========= ローディング画面のためのCSS ===============*/
-#splash {
+#splash_home {
   position: fixed;
   width: 100%;
   height: 100%;
@@ -11,7 +12,7 @@
   color:#fff;
 }
 
-#splash-logo {
+#splash-logo_home {
   position: absolute;
   top: 50%;
   left: 50%;
@@ -21,29 +22,29 @@
 
 /*========= 画面遷移のためのCSS ===============*/
 
-body{
+.body_home{
     background:#003366;/*遷移アニメーションと同じ色を指定*/
 }
 
-body.appear{
+.body_home.appear{
     background:#003366;/*画面を開いた後の背景色を指定*/
 }
 
 /*画面遷移アニメーション*/
-.splashbg1,
-.splashbg2{
+.splashbg1_home,
+.splashbg2_home{
     display: none;
 }
 
 /*bodyにappearクラスがついたら出現*/
-body.appear .splashbg1,
-body.appear .splashbg2{
+.body_home.appear .splashbg1_home,
+.body_home.appear .splashbg2_home{
   display:block;
 }
 
 /*右に消えるエリア*/
-body.appear .splashbg1{
-  animation-name:PageAnime;
+.body_home.appear .splashbg1_home{
+  animation-name:PageAnime_home;
   animation-duration:1.2s;
   animation-timing-function:ease-in-out;
   animation-fill-mode:forwards;
@@ -58,7 +59,7 @@ body.appear .splashbg1{
     background-color: #003366;/*伸びる背景色の設定*/
 }
 
-@keyframes PageAnime{
+@keyframes PageAnime_home{
   0% {
     transform-origin:left;
     transform:scaleX(1);
@@ -73,8 +74,8 @@ body.appear .splashbg1{
 }
 
 /*左に消えるエリア*/
-body.appear .splashbg2{
-  animation-name:PageAnime2;
+.body_home.appear .splashbg2_home{
+  animation-name:PageAnime2_home;
   animation-duration:1.2s;
   animation-timing-function:ease-in-out;
   animation-fill-mode:forwards;
@@ -89,7 +90,7 @@ body.appear .splashbg2{
     background-color: #003366;/*伸びる背景色の設定*/
 }
 
-@keyframes PageAnime2{
+@keyframes PageAnime2_home{
   0% {
     transform-origin:right;
     transform:scaleX(1);
@@ -107,15 +108,15 @@ body.appear .splashbg2{
 
 
 /*bodyにappearクラスがついたら出現*/
-body.appear #container{
-  animation-name:PageAnimeAppear;
+.body_home.appear #container_home{
+  animation-name:PageAnimeAppear_home;
   animation-duration:1s;
   animation-delay:0.2s;
   animation-fill-mode:forwards;
   opacity: 0;
 }
 
-@keyframes PageAnimeAppear{
+@keyframes PageAnimeAppear_home{
   0% {
   opacity: 0;
   }
@@ -126,7 +127,7 @@ body.appear #container{
 
 /*========= レイアウトのためのCSS ===============*/
 
-h1{
+.h1_home{
   font-size:10rem;
 }
 
@@ -134,11 +135,9 @@ h2{
   font-size:1.2rem;
   text-align: center;
   margin: 0 0 30px 0;
+  color: white;
 }
 
-p{
-  margin-top:20px;  
-}
 
 small{
   color:#FFFFFF;
@@ -160,14 +159,15 @@ section:nth-child(2n){
   padding:20px;
 }
 
+/*========= ここまでローディング画面のためのCSS ===============*/
 
 
 
 
-
+/*========= ここからスクロールするCSSの記述 ===============*/
 /*========= レイアウトのためのCSS ===============*/
 
-h1{
+.h1_home{
   position: fixed;
   top: 50%;
   left: 50%;
@@ -180,7 +180,7 @@ h1{
 
 /*========= スクロールをすると下のエリアが上にかぶさるCSS ===============*/
 
-#header{
+#header_home{
     /*headerを全画面で見せる*/
   width:100%;
   height: 100vh;
@@ -189,7 +189,7 @@ h1{
   color: white;
 } 
 
-#header:before{
+#header_home:before{
     /*header の疑似要素に背景画像を指定*/
   content:"";
   position:fixed;
@@ -204,13 +204,14 @@ h1{
 }
 
 /*下の被さるエリアの指定*/
-#container{
+#container_home{
   position: relative;
   z-index:1;
     /*以下はレイアウトのための記述*/
-  background:#FFFFCC;
+  background:#003366;
   text-align: center;
   /*画面遷移の後現れるコンテンツ設定*/
   opacity: 0;/*はじめは透過0に*/
 }
 
+/*========= ここまでスクロールするCSSの記述 ===============*/
