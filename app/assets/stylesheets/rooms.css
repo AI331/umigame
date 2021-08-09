@@ -133,6 +133,7 @@ section:nth-child(2n){
   height: 600px;
   width: 50vw;
   background-color: #253141;
+  overflow: scroll;
 }
 
 .comment_room {

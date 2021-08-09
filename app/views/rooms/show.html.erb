@@ -6,7 +6,7 @@
 
   <div id="container_room">
     <header id="header">
-    <h1>UmiGame</h1>
+    <h1><%= "ルーム名：#{@room.name}" %></h1>
     </header>
   <main>
     <section>
@@ -19,7 +19,7 @@
       <div class="wrapper_room">
       <div class="message_room">     
       <p>message</p> 
-      <div class="message">
+      <div class="messages">
       <%= render partial: 'messages/message', collection: @messages %>
       </div>
       <div class="message-content">
