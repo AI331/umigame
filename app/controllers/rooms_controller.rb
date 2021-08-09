@@ -3,6 +3,8 @@ class RoomsController < ApplicationController
     render layout: 'home'
     @rooms = Room.all.order(:id)
     @room = Room.new
+
+    @messages = Message.all
   end
 
   def new
@@ -20,6 +22,9 @@ class RoomsController < ApplicationController
   end
 
   def show
+    @room = Room.find(params[:id])
+    @messages = @room.messages
+    @message = Message.new
     render layout: 'room'
   end
 
@@ -28,4 +33,5 @@ class RoomsController < ApplicationController
   def room_params
     params.require(:room).permit(:name, user_ids: []).merge(user_id: current_user.id)
   end
+
 end
