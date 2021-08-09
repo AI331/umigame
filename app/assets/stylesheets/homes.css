@@ -105,6 +105,10 @@
   }
 }
 
+  /*画面遷移の後現れるコンテンツ設定*/
+#container_home{
+	opacity: 0;/*はじめは透過0に*/
+}
 
 
 /*bodyにappearクラスがついたら出現*/
@@ -204,14 +208,26 @@ section:nth-child(2n){
 }
 
 /*下の被さるエリアの指定*/
-#container_home{
+#container_home_index{
   position: relative;
   z-index:1;
     /*以下はレイアウトのための記述*/
   background:#003366;
   text-align: center;
-  /*画面遷移の後現れるコンテンツ設定*/
-  opacity: 0;/*はじめは透過0に*/
 }
 
 /*========= ここまでスクロールするCSSの記述 ===============*/
+
+
+.menu {
+  color: #fff;
+  list-style: none;
+}
+
+.room_list {
+  list-style: none;
+}
+li {
+  color: #fff;
+  list-style: none;
+}

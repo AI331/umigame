@@ -110,11 +110,12 @@ small{
 }
 
 section{
-  padding:100px 30px;
+  padding:50px 30px;
+  background-color: #003366;
 }
 
 section:nth-child(2n){
-  background:#f3f3f3; 
+  background:blue; 
 }
 
 #footer{

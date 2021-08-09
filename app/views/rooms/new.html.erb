@@ -1,6 +1,6 @@
 <p>新規ルーム作成</p>
 
-<%=form_with model: @room, url: rooms_path, local: true do |f|%>
+<%=form_with model: @room, local: true do |f|%>
 
   <div class=''>
     <%= f.label :ルーム名, class: ''%>
@@ -12,3 +12,7 @@
     <%= f.submit "ルームを作成する",class: 'btn' %>
   </div>
 <% end %>
+
+
+
+  
