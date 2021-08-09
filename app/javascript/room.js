@@ -16,3 +16,13 @@ $(window).on('load',function(){
   //=====ここまで背景が伸びた後に動かしたいJSをまとめる
   
   });
+
+
+  $('#timer2').yycountdown({
+    startDateTime : '2021/08/08 23:59:55',  //カウントダウン開始日時
+    endDateTime   : '2020/08/27 00:00:00',  //カウントダウン終了日時
+    unit          : {m: '分', s: '秒'},  //カウントダウン単位
+    complete      : function(_this){  //カウントダウン完了時のコールバック
+                      _this.find('.yycountdown-box').css({color:'red'});
+                    }
+  });

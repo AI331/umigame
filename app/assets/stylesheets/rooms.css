@@ -111,11 +111,12 @@ small{
 
 section{
   padding:50px 30px;
-  background-color: #003366;
+
 }
 
 section:nth-child(2n){
-  background:blue; 
+  
+
 }
 
 #footer{
@@ -139,4 +140,10 @@ section:nth-child(2n){
 .comment_room {
   height: 600px;
   width: 50vh;
+}
+
+main {
+  background:url(umi.jpg) no-repeat center;
+  background-size:100vh ;
+  background-size:100vw ;
 }
