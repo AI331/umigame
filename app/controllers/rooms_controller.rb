@@ -1,10 +1,9 @@
 class RoomsController < ApplicationController
   def index
-    render layout: 'home'
-    @rooms = Room.all.order(:id)
+    @rooms = current_user.rooms
     @room = Room.new
-
     @messages = Message.all
+    render layout: 'home'
   end
 
   def new

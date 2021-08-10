@@ -29,7 +29,7 @@
 
         <!-- ルーム参加に関する記述 -->
         <p>ルームに参加する</p>
-        <% Room.all.each do |room| %>
+        <% @rooms.each do |room| %>
         <%= link_to "#{room.name}", room_path(room) %>
         <% end %>
         <!-- ここまで -->
