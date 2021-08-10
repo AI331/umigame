@@ -136,7 +136,7 @@ section:nth-child(2n){
 .message_room {
   height: 600px;
   width: 50vw;
-  background-color: #253141;
+  background-color: rgba(#d7ebfe, 0);
   overflow: scroll;
 }
 
@@ -175,7 +175,9 @@ section:nth-child(2n){
   margin: 5px 0 0 105px;
   padding: 17px 13px;
   border-radius: 12px;
-  background: #d7ebfe;
+  background-color:#d7ebfe;
+  opacity: 0.5;
+
 }
 
 .says:after {
@@ -191,4 +193,9 @@ section:nth-child(2n){
 .says p {
   margin: 0;
   padding: 0;
+}
+
+main {
+  background:url(bar.jpg) no-repeat center;
+  background-size:cover;
 }
