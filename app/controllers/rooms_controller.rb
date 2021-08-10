@@ -25,13 +25,9 @@ class RoomsController < ApplicationController
     @messages = @room.messages.includes(:user)
     @message = Message.new
 
-    if !@room.users.include?(current_user)
-      @room.users << current_user
-    end
-
+    @room.users << current_user unless @room.users.include?(current_user)
 
     render layout: 'room'
-    
   end
 
   private
@@ -39,5 +35,4 @@ class RoomsController < ApplicationController
   def room_params
     params.require(:room).permit(:name, user_ids: []).merge(user_id: current_user.id)
   end
-
 end
