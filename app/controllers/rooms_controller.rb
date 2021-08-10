@@ -1,10 +1,9 @@
 class RoomsController < ApplicationController
   def index
-    render layout: 'home'
-    @rooms = Room.all.order(:id)
+    @rooms = current_user.rooms
     @room = Room.new
-
     @messages = Message.all
+    render layout: 'home'
   end
 
   def new
@@ -25,8 +24,10 @@ class RoomsController < ApplicationController
     @room = Room.find(params[:id])
     @messages = @room.messages.includes(:user)
     @message = Message.new
+
+    @room.users << current_user unless @room.users.include?(current_user)
+
     render layout: 'room'
-    
   end
 
   private
@@ -34,5 +35,4 @@ class RoomsController < ApplicationController
   def room_params
     params.require(:room).permit(:name, user_ids: []).merge(user_id: current_user.id)
   end
-
 end
