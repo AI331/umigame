@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   root to: 'rooms#index'
   resources :users, only: [:edit, :update]
   resources :rooms do
+    get :search, on: :collection
     resources :messages, only: [:index, :create, :destroy]
   end
  

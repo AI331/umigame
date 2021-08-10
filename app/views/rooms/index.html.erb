@@ -33,6 +33,13 @@
         <%= link_to "#{room.name}", room_path(room),data: {"turbolinks" => false} %>
         <% end %>
         <!-- ここまで -->
+        <p>ルームを検索する</p>
+        <%= search_form_for @q, url: search_rooms_path do |f| %>
+          <%= f.label :name_eq, 'ルーム名' %>
+          <%= f.search_field :name_eq %>
+          <br>
+          <%= f.submit '検索' %>
+        <% end %>
 
 
         </div>
