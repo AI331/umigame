@@ -5,9 +5,11 @@
 <div class="splashbg_room"></div><!---画面遷移用-->
 
   <div id="container_room">
+
     <header id="header">
     <h1><%= "ルーム名：#{@room.name}" %></h1>
     </header>
+
   <main>
     <section>
 <h2>ビデオ通話機能できたらいいなスペース</h2>
@@ -23,10 +25,23 @@
     <!--/area2--></section>
     <section>
       <div class="wrapper_room">
+
       <div class="message_room">     
       <p>message</p> 
       <div class="messages">
-      <%= render partial: 'messages/message', collection: @messages %>
+      <!--吹き出しはじまり-->
+      <div class="balloon5">
+        <div class="faceicon">
+          ★ここに画像を入れる <img~>★
+        </div>
+        <div class="chatting">
+          <div class="says">
+            <%= render partial: 'messages/message', collection: @messages %>
+          </div>
+        </div>
+      </div>
+      <!--吹き出し終わり-->
+      
       </div>
       <div class="message-content">
       </div>
