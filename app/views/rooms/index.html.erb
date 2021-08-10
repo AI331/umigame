@@ -29,22 +29,12 @@
 
         <!-- ルーム参加に関する記述 -->
         <p>ルームに参加する</p>
-        <%= form_with model: @room, url: rooms_path,local: true do |f|%>
-              <label class='room-form__label' for='chat_room_チャットメンバー'>ルーム一覧</label>
-            </div>
-            <div class='room-form__field'>
-              <select>
-                <option value="">ルームを選択してください</option>
-                <% Room.all.each do |room| %>
-                  <option><%= room.name %></option>
-                <% end %>
-              </select>
-            </div>
-          
-              <%= f.submit "ルームに参加する", class: 'btn'%>
-              </div>
+        <% Room.all.each do |room| %>
+        <%= link_to "#{room.name}", room_path(room) %>
         <% end %>
         <!-- ここまで -->
+
+
         </div>
         <% else %>
         <!-- 非ログイン時 -->

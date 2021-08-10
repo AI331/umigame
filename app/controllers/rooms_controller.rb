@@ -25,6 +25,12 @@ class RoomsController < ApplicationController
     @room = Room.find(params[:id])
     @messages = @room.messages.includes(:user)
     @message = Message.new
+
+    if !@room.users.include?(current_user)
+      @room.users << current_user
+    end
+
+
     render layout: 'room'
     
   end
