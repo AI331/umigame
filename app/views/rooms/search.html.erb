@@ -1,7 +1,7 @@
 <h1>ルーム検索結果</h1>
 <div>
   <% @rooms.each do |room| %>
-      <%= link_to "ルーム名：#{room.name}に参加する", room_path(room), data: {turbolinks: false} %>
+    <%= link_to "ルーム名：#{room.name}に参加する", room_path(room), data: {turbolinks: false} %>
   <% end %>
 </div>
 <div>
