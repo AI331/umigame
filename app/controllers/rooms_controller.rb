@@ -1,6 +1,6 @@
 class RoomsController < ApplicationController
   layout 'home'
-  before_action :set_q, only: %i[index search]
+  before_action :set_search, only: %i[index search]
   def index
     if user_signed_in?
       @rooms = current_user.rooms
@@ -42,7 +42,7 @@ class RoomsController < ApplicationController
     params.require(:room).permit(:name, user_ids: []).merge(user_id: current_user.id)
   end
 
-  def set_q
+  def set_search
     @search = Room.ransack(params[:q])
   end
 end
