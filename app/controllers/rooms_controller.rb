@@ -27,9 +27,7 @@ class RoomsController < ApplicationController
     @messages = @room.messages.includes(:user)
     @message = Message.new
 
-    if !@room.users.include?(current_user)
-      @room.users << current_user
-    end
+    @room.users << current_user unless @room.users.include?(current_user)
 
     render layout: 'room'
   end
@@ -47,5 +45,4 @@ class RoomsController < ApplicationController
   def set_q
     @search = Room.ransack(params[:q])
   end
-
 end
