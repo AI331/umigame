@@ -1,9 +1,11 @@
 class RoomsController < ApplicationController
+  layout 'home'
+  before_action :set_search, only: %i[index search]
   def index
-    @rooms = current_user.rooms
-    @room = Room.new
-    @messages = Message.all
-    render layout: 'home'
+    if user_signed_in?
+      @rooms = current_user.rooms
+      @room = Room.new
+    end
   end
 
   def new
@@ -30,9 +32,17 @@ class RoomsController < ApplicationController
     render layout: 'room'
   end
 
+  def search
+    @rooms = @search.result
+  end
+
   private
 
   def room_params
     params.require(:room).permit(:name, user_ids: []).merge(user_id: current_user.id)
+  end
+
+  def set_search
+    @search = Room.ransack(params[:q])
   end
 end
