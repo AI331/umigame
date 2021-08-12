@@ -13,7 +13,7 @@
 
     <div id="container_home_index">
       <section>
-            <% if user_signed_in? %>
+        <% if user_signed_in? %>
         <div class="menu">
         <h2>ようこそ、<%="#{current_user.nickname}"%>さん</h2> 
           <span>
@@ -30,7 +30,7 @@
         <!-- ルーム参加に関する記述 -->
         <p>ルームに参加する</p>
         <% @rooms.each do |room| %>
-        <%= link_to room.name, room_path(room),data: {turbolinks: false} %>
+          <%= link_to room.name, room_path(room), data: { turbolinks: false } %>
         <% end %>
         <!-- ここまで -->
         <p>ルームを検索する</p>
