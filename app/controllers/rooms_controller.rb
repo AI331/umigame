@@ -27,6 +27,8 @@ class RoomsController < ApplicationController
     @messages = @room.messages.includes(:user)
     @message = Message.new
 
+    @quizzes = Quiz.all
+
     @room.users << current_user unless @room.users.include?(current_user)
 
     render layout: 'room'

@@ -131,7 +131,6 @@ section{
 .message_room {
   height: 600px;
   width: 50vw;
-  background-color: rgba(#d7ebfe, 0);
   overflow: scroll;
 }
 
