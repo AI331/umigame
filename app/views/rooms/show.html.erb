@@ -24,7 +24,9 @@
       <input type="button" value="ストップ" onclick="cntStop()">
       </form>
     <!--タイマー機能 -->
-
+    
+    <!-- 問題出題と解答の閲覧はルーム作成者のみ -->
+      <%if current_user.id == @room.user_id %>
     <!-- 問題選択プルダウン -->
       <%= search_form_for @p, url: room_path(@room) do |f| %>
         <%= f.label :title_eq, '問題一覧：' %>
@@ -33,6 +35,8 @@
         <%= f.submit '問題を出題する' %>
       <% end %>
       <!-- 問題選択プルダウン -->
+      <%end%>
+       <!-- 問題出題と解答の閲覧はルーム作成者のみ -->
 
       <!-- 問題表示 -->
       <% unless @p.result.length >=2 %>
@@ -46,7 +50,7 @@
           </H2>
         <% end %>
       <% else %>
-        <H2>出題する問題を選択してください</H2>
+        <H2>出題する問題を選択しています</H2>
       <% end %>
       <!-- 問題表示 -->
     
@@ -84,7 +88,7 @@
       <h2>メッセージ入力フォーム</h2>
     <%= form_with model: [@room, @message], class: 'form', local: true do |f| %>
       <div class="form-input">
-        <%= f.text_field :messages_content, class: 'form-message', placeholder: 'type a message' %>
+        <%= f.text_field :messages_content, class: 'form-message', placeholder: 'YESかNOで答えられる質問を入力してください' %>
       </div>
     <%= f.submit '送信', class: 'form-submit' %>
     <% end %>

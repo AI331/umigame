@@ -4,10 +4,10 @@ class RoomsController < ApplicationController
   before_action :search_quiz, only: %i[search show]
 
   def index
-    if user_signed_in?
-      @rooms = current_user.rooms
-      @room = Room.new
-    end
+    return unless user_signed_in?
+
+    @rooms = current_user.rooms
+    @room = Room.new
   end
 
   def new
