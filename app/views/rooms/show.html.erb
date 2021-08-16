@@ -25,20 +25,30 @@
       </form>
     <!--タイマー機能 -->
 
-      <%=form_with model: @hoge, local: true do |f|%>
-        <select>
-          <% @quizzes.each do |quiz| %>
-          <option value="">出題する問題を選択してください</option>
-            <option><%= quiz.title%></option>
-            <% end %>
-        </select>
-        <%= f.submit class: 'btn'%>
+    <!-- 問題選択プルダウン -->
+      <%= search_form_for @p, url: room_path(@room) do |f| %>
+        <%= f.label :title_eq, '問題一覧：' %>
+        <%= f.collection_select :title_eq, @quizzes, :title, :title%>
+        <br>
+        <%= f.submit '問題を出題する' %>
       <% end %>
+      <!-- 問題選択プルダウン -->
 
-      <% @quizzes.each do |quiz| %>
-        <h2><%= quiz.quizzes_content%></h2>
-        <h2><%= quiz.answer%></h2>
+      <!-- 問題表示 -->
+      <% unless @p.result.length >=2 %>
+        <% @p.result.each do |quiz| %>
+          <br>
+          <H2>
+            <%= quiz.quizzes_content %>
+          </H2>
+          <H2>
+            <%= quiz.answer %>
+          </H2>
+        <% end %>
+      <% else %>
+        <H2>出題する問題を選択してください</H2>
       <% end %>
+      <!-- 問題表示 -->
     
     <!--/area2--></section>
     <section>

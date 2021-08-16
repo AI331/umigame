@@ -1,6 +1,8 @@
 class RoomsController < ApplicationController
   layout 'home'
   before_action :set_search, only: %i[index search]
+  before_action :search_quiz, only: %i[search show]
+
   def index
     if user_signed_in?
       @rooms = current_user.rooms
@@ -46,5 +48,9 @@ class RoomsController < ApplicationController
 
   def set_search
     @search = Room.ransack(params[:q])
+  end
+
+  def search_quiz
+    @p = Quiz.ransack(params[:q])
   end
 end
