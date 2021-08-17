@@ -1,9 +1,11 @@
 class MessagesController < ApplicationController
   def create
     @room = Room.find(params[:room_id])
+    @user = User.find_by(id: current_user.id)
     @message = @room.messages.new(message_params)
-    @message.save
-    redirect_to room_url(@room)
+      if @message.save
+        ActionCable.server.broadcast 'message_channel', content: @message, user: @user
+      end
   end
 
   private
