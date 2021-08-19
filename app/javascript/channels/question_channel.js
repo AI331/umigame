@@ -25,11 +25,13 @@ consumer.subscriptions.create("QuestionChannel", {
           <p>${question}</p>
         </div>
       </div>
-      <div class="">
+      if (current_user.id == @room.user_id) {
+      <div class="answer">
         <div class="q_answer">
           <p>${answer}</p>
         </div>
-      </div>`
+      </div>
+      }`
       
     questions.insertAdjacentHTML('beforeend', html);
     newQuestion.value='';
