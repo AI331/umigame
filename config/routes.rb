@@ -5,8 +5,10 @@ Rails.application.routes.draw do
   resources :users, only: [:edit, :update]
   resources :rooms do
     get :search, on: :collection
-    resources :messages, only: [:create, :destroy]
     resources :questions, only: [:create, :destroy]
+    resources :messages, only: [:create, :destroy] do
+      resources :comments, only: [:create, :destroy]
+    end
   end
  
 end
