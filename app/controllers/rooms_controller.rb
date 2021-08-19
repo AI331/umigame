@@ -28,6 +28,8 @@ class RoomsController < ApplicationController
     @room = Room.find(params[:id])
     @messages = @room.messages.includes(:user)
     @message = Message.new
+    @comments = @room.comments.includes(:user)
+    @comment = Comment.new
     @quizzes = Quiz.all
     @questions = @room.questions.all
     @question = Question.new

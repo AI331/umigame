@@ -71,6 +71,9 @@
 
       <div class="comment_room">
       <p>comment</p>
+        <div id="comments" class="says">
+          <%= render partial: 'comments/comment', collection: @comments %>
+        </div>
       </div>
       </div>
     <!--/area3--></section>
@@ -80,8 +83,18 @@
       <div class="form-input">
         <%= f.text_field :messages_content, class: 'form-message', placeholder: 'YESかNOで答えられる質問を入力してください' %>
       </div>
-    <%= f.submit '送信', class: 'form-submit' %>
+      <%= f.submit '送信', class: 'form-submit' %>
     <% end %>
+    <div>
+    <h2>コメント入力フォーム</h2>
+    <%= form_with model: [@room, @message], class: 'form' do |f| %>
+      <div class="form-input">
+        <%= f.collection_select :message, @messages, :messages_content, :messages_content, {prompt: "返信先を選択してください"} %>%>
+        <%= f.text_field :comment, class: 'form-message', placeholder: 'YESかNOで返信してください' %>
+      </div>
+      <%= f.submit '送信', class: 'form-submit' %>
+    <% end %> 
+    </div>
 
     <!--/area4--></section>
     <!--/contaier-->
