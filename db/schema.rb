@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_08_12_074359) do
+ActiveRecord::Schema.define(version: 2021_08_19_030757) do
 
   create_table "messages", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.bigint "user_id", null: false
@@ -20,6 +20,18 @@ ActiveRecord::Schema.define(version: 2021_08_12_074359) do
     t.datetime "updated_at", precision: 6, null: false
     t.index ["room_id"], name: "index_messages_on_room_id"
     t.index ["user_id"], name: "index_messages_on_user_id"
+  end
+
+  create_table "questions", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "room_id", null: false
+    t.bigint "quiz_id", null: false
+    t.string "title"
+    t.text "q_content"
+    t.text "q_answer"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["quiz_id"], name: "index_questions_on_quiz_id"
+    t.index ["room_id"], name: "index_questions_on_room_id"
   end
 
   create_table "quizzes", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -71,6 +83,8 @@ ActiveRecord::Schema.define(version: 2021_08_12_074359) do
 
   add_foreign_key "messages", "rooms"
   add_foreign_key "messages", "users"
+  add_foreign_key "questions", "quizzes"
+  add_foreign_key "questions", "rooms"
   add_foreign_key "room_quizzes", "quizzes"
   add_foreign_key "room_quizzes", "rooms"
   add_foreign_key "room_users", "rooms"
