@@ -6,9 +6,8 @@ Rails.application.routes.draw do
   resources :rooms do
     get :search, on: :collection
     resources :questions, only: [:create, :destroy]
-    resources :messages, only: [:create, :destroy] do
-      resources :comments, only: [:create, :destroy]
-    end
+    resources :messages, only: [:create, :destroy] 
+    resources :comments, only: [:create, :destroy]
   end
  
 end
