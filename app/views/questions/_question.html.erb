@@ -1,7 +1,6 @@
 <div class="question">
-  <div class="">
-    <div class="">
-      <!-- タイトルを出力する -->
+  <div class="question-content">
+    <div class="q_title">
       <%= question.title %>
     </div>
     <div class="">
@@ -9,10 +8,13 @@
       <%= question.q_content %>
     </div>
   </div>
-  <div class="">
-    <div class="">
-      <!-- 解答文を出力する -->
-      <%= question.q_answer %>
+  
+  <%if current_user.id == @room.user_id %>
+    <div class="answer-content">
+      <div class="q_answer">
+        <!-- 解答文を出力する -->
+        <%= question.q_answer %>
+      </div>
     </div>
-  </div>
+  <% end %>
 </div>
