@@ -3,9 +3,7 @@ class MessagesController < ApplicationController
     @room = Room.find(params[:room_id])
     @user = User.find_by(id: current_user.id)
     @message = @room.messages.new(message_params)
-      if @message.save
-        ActionCable.server.broadcast 'message_channel', content: @message, user: @user
-      end
+    ActionCable.server.broadcast 'message_channel', content: @message, user: @user if @message.save
   end
 
   private

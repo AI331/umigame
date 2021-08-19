@@ -1,7 +1,7 @@
 class RoomsController < ApplicationController
   layout 'home'
   before_action :set_search, only: %i[index search]
-  before_action :search_quiz, only: %i[search show]
+  before_action :search_quiz, only: :show
 
   def index
     return unless user_signed_in?
@@ -28,12 +28,11 @@ class RoomsController < ApplicationController
     @room = Room.find(params[:id])
     @messages = @room.messages.includes(:user)
     @message = Message.new
-
     @quizzes = Quiz.all
+    @questions = @room.questions.all
+    @question = Question.new
 
     @room.users << current_user unless @room.users.include?(current_user)
-
-    render layout: 'room'
   end
 
   def search

@@ -26,33 +26,25 @@
     <!--タイマー機能 -->
     
     <!-- 問題出題と解答の閲覧はルーム作成者のみ -->
-      <%if current_user.id == @room.user_id %>
+     <%if current_user.id == @room.user_id %>
     <!-- 問題選択プルダウン -->
-      <%= search_form_for @p, url: room_path(@room) do |f| %>
-        <%= f.label :title_eq, '問題一覧：' %>
-        <%= f.collection_select :title_eq, @quizzes, :title, :title%>
-        <br>
-        <%= f.submit '問題を出題する' %>
-      <% end %>
-      <!-- 問題選択プルダウン -->
-      <%end%>
-       <!-- 問題出題と解答の閲覧はルーム作成者のみ -->
-
-      <!-- 問題表示 -->
-      <% unless @p.result.length >=2 %>
-        <% @p.result.each do |quiz| %>
-          <br>
-          <H2>
-            <%= quiz.quizzes_content %>
-          </H2>
-          <H2>
-            <%= quiz.answer %>
-          </H2>
+        <%= form_with model: [@room, @question], local: true do |f| %>
+        <div class="">
+          <%= f.collection_select :quiz_id, @quizzes, :id, :title, {prompt: "問題を選択してください"} %>
+        </div>
+       <%= f.submit '問題を出題する' %>
         <% end %>
-      <% else %>
-        <H2>出題する問題を選択しています</H2>
-      <% end %>
-      <!-- 問題表示 -->
+
+    <!-- 問題選択プルダウン -->
+      <%end%>
+    <!-- 問題出題と解答の閲覧はルーム作成者のみ -->
+
+    <!-- 問題表示 -->
+      <div id="questions" class="">
+        <%= render partial: 'questions/question', collection: @questions %>
+      </div>
+
+    <!-- 問題表示 -->
     
     <!--/area2--></section>
     <section>
