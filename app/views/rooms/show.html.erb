@@ -26,27 +26,23 @@
     <!--タイマー機能 -->
     
     <div id="question">
-    <!-- 問題出題と解答の閲覧はルーム作成者のみ -->
+     <!-- 問題出題 -->
      <%if current_user.id == @room.user_id %>
-    <!-- 問題選択プルダウン -->
         <%= form_with model: [@room, @question], local: true do |f| %>
         <div class="">
           <%= f.collection_select :quiz_id, @quizzes, :id, :title, {prompt: "問題を選択してください"} %>
         </div>
        <%= f.submit '問題を出題する' %>
         <% end %>
-
-    <!-- 問題選択プルダウン -->
       <%end%>
-    <!-- 問題出題と解答の閲覧はルーム作成者のみ -->
+     <!-- 問題出題 -->
 
-    <!-- 問題表示 -->
+     <!-- 問題表示 -->
       <div id="questions" class="">
         <%= render partial: 'questions/question', collection: @questions %>
       </div>
-
-    <!-- 問題表示 -->
-    
+     <!-- 問題表示 -->
+    </div>
     <!--/area2--></section>
     <section>
       <div class="wrapper_room">
@@ -86,7 +82,7 @@
       </div>
       <%= f.submit '送信', class: 'form-submit' %>
     <% end %>
-    
+
     <div>
     <h2>コメント入力フォーム</h2>
     <%= form_with model: [@room, @comment], class: 'form' do |f| %>
