@@ -1,18 +1,21 @@
-<p>新規ルーム作成</p>
-
-<%=form_with model: @room, local: true do |f|%>
-
-  <div class=''>
-    <%= f.label :ルーム名, class: ''%>
+<div class="sample3">
+  <div class="c1"></div>
+    <span>
+     <div class="menu">
+      <div class="greeting">新規ルーム作成</div>
+      <%=form_with model: @room, local: true do |f|%>
+        <div class='menu-list'>
+          <%= f.label :ルーム名, class: 'h2'%>
+        </div>
+        <div class='menu-list'>
+          <%= f.text_field :name, class: '', placeholder: 'ルーム名'%>
+        </div>
+        <br>
+        <div class='menu-list'>
+          <%= f.submit "ルームを作成する",class: 'button' %>
+        </div>
+      <% end %>
+      </div>
+    </span>
   </div>
-  <div class=''>
-    <%= f.text_field :name, class: '', placeholder: 'ルーム名を入力してください'%>
-  </div>
-  <div class=''>
-    <%= f.submit "ルームを作成する",class: 'btn' %>
-  </div>
-<% end %>
-
-
-
-  
+</div>

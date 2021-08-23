@@ -14,52 +14,44 @@
     <div id="container_home_index">
       <section>
         <% if user_signed_in? %>
-        <div class="menu">
-        <h2>ようこそ、<%="#{current_user.nickname}"%>さん</h2> 
-          <span>
-            <ul class="user_info">
-              <li>
-                <%= link_to "アカウント情報変更", "/users/#{current_user.id}/edit" %>
-                <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
-              </li>
-            </ul>
-          </span>
-          <%= link_to "ルームを作成する", new_room_path, class: "post" %>
+          <div class="menu">
+            <div class="greeting">ようこそ、<%="#{current_user.nickname}"%>さん</div> 
 
-
-        <!-- ルーム参加に関する記述 -->
-        <p>ルームに参加する</p>
-        <% @rooms.each do |room| %>
-          <%= link_to room.name, room_path(room), data: { turbolinks: false } %>
-        <% end %>
-        <!-- ここまで -->
-        <p>ルームを検索する</p>
-        <%= search_form_for @search, url: search_rooms_path do |f| %>
-          <%= f.label :name_eq, 'ルーム名' %>
-          <%= f.search_field :name_eq %>
-          <br>
-          <%= f.submit '検索' %>
-        <% end %>
-
-
-        </div>
+              <div class="menu-list">ルームを作成する</div>
+              <%= link_to new_room_path do %>
+              <button class="button">作成する</button>
+              <% end %>
+            <div class="menu-list">ルームに参加する</div>
+              <%= search_form_for @search, url: search_rooms_path do |f| %>
+                <%= f.search_field :name_eq, placeholder: "ルーム名を検索", class: "room-search-form"%>
+                <br>
+                <%= f.submit '検索する', class: "button"%>
+              <% end %>
+              <span>
+              <ul class="user_info">
+                <li>
+                  <%= link_to "アカウント情報変更", "/users/#{current_user.id}/edit", class: 'link' %>
+                  <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: 'link' %>
+                </li>
+              </ul>
+            </span>
+          </div>
         <% else %>
         <!-- 非ログイン時 -->
         <div class="menu">
-        <h2>ようこそ、ゲストさん<h2>
-          <%= link_to "ログイン", new_user_session_path, class: "post" %>
-          <%= link_to "新規登録", new_user_registration_path, class: "post" %>
+        <div class="greeting ">ようこそ、ゲストさん</div>
+          <%= link_to new_user_session_path do %>
+            <button class="button">ログイン</button>
+          <% end %>
+          <%= link_to new_user_registration_path do %>
+            <button class="button">新規登録</button>
+          <% end %>
         </div>
         <% end %>
+        
 
       </section><!--/area1-->
 
     </div><!--/contaier_home_index-->
-  
-      <footer id="footer">
-      <small>&copy; copyright.</small>
-    </footer>
  </div><!--/contaier_home-->
-
-
 </body>

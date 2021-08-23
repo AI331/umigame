@@ -37,6 +37,12 @@ class RoomsController < ApplicationController
     @room.users << current_user unless @room.users.include?(current_user)
   end
 
+  def destroy
+    room = Room.find(params[:id])
+    room.destroy
+    redirect_to root_url notice: 'ルームが削除されました'
+  end
+
   def search
     @rooms = @search.result
   end

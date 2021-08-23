@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
   def edit
     @user = User.find(params[:id])
+    @rooms = current_user.rooms
   end
 
   def update

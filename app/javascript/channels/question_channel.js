@@ -10,30 +10,26 @@ consumer.subscriptions.create("QuestionChannel", {
   },
 
   received(data) {
-    const title = `<p>${data.content.title}</p>`;
-    const question = `<p>${data.content.q_content}</p>`;
-    const answer = `<p>${data.content.q_answer}</p>`;
-
+    const title = `<h2>${data.content.title}</h2>`;
+    const question = `<h2>${data.content.q_content}</h2>`;
+    const answer = `<h2>${data.content.q_answer}</h2>`;
     const questions = document.getElementById('question');
-    const newQuestion = document.getElementById('message_text');
+    const qSelect =document.getElementById('q_select');
     const html = `
       <div class="question-content">
         <div class="q_title">
-          <p>${title}</p>
+          ${title}
         </div>
         <div class="q_question">
-          <p>${question}</p>
+          ${question}
         </div>
       </div>
-      if (current_user.id == @room.user_id) {
       <div class="answer">
         <div class="q_answer">
-          <p>${answer}</p>
+          ${answer}
         </div>
-      </div>
-      }`
-      
+      </div>` 
     questions.insertAdjacentHTML('beforeend', html);
-    newQuestion.value='';
+    qSelect.innerHTML='';
   }
 });

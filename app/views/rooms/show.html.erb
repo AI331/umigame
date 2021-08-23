@@ -8,6 +8,14 @@
 
     <header id="header">
     <h1><%= "ルーム名：#{@room.name}" %></h1>
+    <div class="">
+    <%= link_to "トップページへ戻る", root_url, data: {turbolinks: false} %>
+    </div>
+    <%if current_user.id == @room.user_id %>
+    <div class="">
+      <%= link_to "ルームを削除する", room_path(@room), method: :delete, class:"question-destroy" %>
+    <% end %>
+    </div>
     </header>
 
   <main>
@@ -25,20 +33,20 @@
       </form>
     <!--タイマー機能 -->
     
-    <div id="question">
+    <div>      
      <!-- 問題出題 -->
      <%if current_user.id == @room.user_id %>
         <%= form_with model: [@room, @question], local: true do |f| %>
-        <div class="">
+        <div id="q_select">
           <%= f.collection_select :quiz_id, @quizzes, :id, :title, {prompt: "問題を選択してください"} %>
+          <%= f.submit '問題を出題する' %>
         </div>
-       <%= f.submit '問題を出題する' %>
         <% end %>
       <%end%>
      <!-- 問題出題 -->
 
      <!-- 問題表示 -->
-      <div id="questions" class="">
+      <div id="question" class="">
         <%= render partial: 'questions/question', collection: @questions %>
       </div>
      <!-- 問題表示 -->
@@ -74,25 +82,30 @@
       </div>
       </div>
     <!--/area3--></section>
+
     <section>
+    <%if current_user.id == @room.user_id %>
+
+      <div>
+        <h2>コメント入力フォーム</h2>
+        <%= form_with model: [@room, @comment], class: 'form' do |f| %>
+          <div class="form-input">
+            <%= f.text_field :comment, class: 'form-comment', placeholder: 'YESかNOで返信してください' %>
+          </div>
+          <%= f.submit '送信', class: 'form-submit' %>
+        <% end %> 
+      </div>
+
+    <%else%>
+
       <h2>メッセージ入力フォーム</h2>
-    <%= form_with model: [@room, @message], class: 'form' do |f| %>
-      <div class="form-input">
-        <%= f.text_field :messages_content, class: 'form-message', placeholder: 'YESかNOで答えられる質問を入力してください' %>
-      </div>
-      <%= f.submit '送信', class: 'form-submit' %>
+      <%= form_with model: [@room, @message], class: 'form' do |f| %>
+        <div class="form-input">
+          <%= f.text_field :messages_content, class: 'form-message', placeholder: 'YESかNOで答えられる質問を入力してください' %>
+        </div>
+        <%= f.submit '送信', class: 'form-submit' %>
+      <% end %>
     <% end %>
-
-    <div>
-    <h2>コメント入力フォーム</h2>
-    <%= form_with model: [@room, @comment], class: 'form' do |f| %>
-      <div class="form-input">
-        <%= f.text_field :comment, class: 'form-comment', placeholder: 'YESかNOで返信してください' %>
-      </div>
-      <%= f.submit '送信', class: 'form-submit' %>
-    <% end %> 
-    </div>
-
     <!--/area4--></section>
     <!--/contaier-->
   <!--/main--></main>
