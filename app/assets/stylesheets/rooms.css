@@ -190,6 +190,5 @@ section{
 }
 
 main {
-  background:url(bar.jpg) no-repeat center;
   background-size:cover;
 }
