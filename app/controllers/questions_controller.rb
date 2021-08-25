@@ -8,9 +8,10 @@ class QuestionsController < ApplicationController
   end
 
   def destroy
-    question = Question.find(params[:ids])
-    question.destroy
-    redirect_to room_url(@room)
+    @question = Question.find(params[:room_id])
+    if @question.destroy
+      ActionCable.server.broadcast 'delete_channel', content: @question
+    end
   end
 
   private

@@ -19,18 +19,16 @@
     </header>
 
   <main>
-    <section>
-<h2>ビデオ通話機能できたらいいなスペース</h2>
-    <!--/area1--></section>
-    <section>
-    <h2>問題出題スペース</h2>
+    <section class="quiz">
     <!--タイマー機能 -->
+    <div class="timer">
       <form name="timer">
       <input type="text" value="">分
       <input type="text" value="">秒<br>
       <input type="button" value="スタート" onclick="cntStart()">
       <input type="button" value="ストップ" onclick="cntStop()">
       </form>
+    </div>
     <!--タイマー機能 -->
     
     <div>      
@@ -46,40 +44,26 @@
      <!-- 問題出題 -->
 
      <!-- 問題表示 -->
-      <div id="question" class="">
+      <div id="question" class="question">
         <%= render partial: 'questions/question', collection: @questions %>
-      </div>
+      <div>
      <!-- 問題表示 -->
     </div>
     <!--/area2--></section>
     <section>
       <div class="wrapper_room">
 
-      <div class="message_room">     
-      <p>message</p> 
-      <div class="messages">
-      <!--吹き出しはじまり-->
-      <div class="balloon5">
-        <div class="faceicon">
-          ★ここに画像を入れる <img~>★
-        </div>
-        <div class="chatting">
-          <div id="messages" class="says">
+        <div class="message_room">     
+          <div id="messages" class="left-box">
             <%= render partial: 'messages/message', collection: @messages %>
           </div>
         </div>
-      </div>
-      <!--吹き出し終わり-->
-      
-      </div>
-      </div>
 
-      <div class="comment_room">
-      <p>comment</p>
-        <div id="comments" class="says">
-          <%= render partial: 'comments/comment', collection: @comments %>
+        <div class="comment_room">
+          <div id="comments" class="">
+            <%= render partial: 'comments/comment', collection: @comments %>
+          </div>
         </div>
-      </div>
       </div>
     <!--/area3--></section>
 
@@ -87,24 +71,23 @@
     <%if current_user.id == @room.user_id %>
 
       <div>
+      <div class="form">
         <h2>コメント入力フォーム</h2>
-        <%= form_with model: [@room, @comment], class: 'form' do |f| %>
-          <div class="form-input">
+        <%= form_with model: [@room, @comment], class: '' do |f| %>
             <%= f.text_field :comment, class: 'form-comment', placeholder: 'YESかNOで返信してください' %>
-          </div>
           <%= f.submit '送信', class: 'form-submit' %>
         <% end %> 
       </div>
+      </div>
 
     <%else%>
-
+    <div class="form">
       <h2>メッセージ入力フォーム</h2>
-      <%= form_with model: [@room, @message], class: 'form' do |f| %>
-        <div class="form-input">
+      <%= form_with model: [@room, @message], class: '' do |f| %>
           <%= f.text_field :messages_content, class: 'form-message', placeholder: 'YESかNOで答えられる質問を入力してください' %>
-        </div>
         <%= f.submit '送信', class: 'form-submit' %>
       <% end %>
+    </div>
     <% end %>
     <!--/area4--></section>
     <!--/contaier-->

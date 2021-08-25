@@ -14,7 +14,8 @@ consumer.subscriptions.create("CommentChannel", {
     const CreatedAt = `<p>${data.content.created_at}</p>`;
     const Nickname = `<p>${data.user.nickname}</p>`;
     const HTML = `
-    <div class="comments">
+    <div class="balloon-right">
+    <div class="upper-comment">
       <div class="comment-user">
         <p>${Nickname}</p>
       </div>
@@ -26,6 +27,7 @@ consumer.subscriptions.create("CommentChannel", {
       <div class="comment">
         <p>${comment}</p>
       </div>
+    </div>
     </div>`
                         
     const comments = document.getElementById('comments');

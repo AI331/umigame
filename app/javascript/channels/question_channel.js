@@ -17,16 +17,12 @@ consumer.subscriptions.create("QuestionChannel", {
     const qSelect =document.getElementById('q_select');
     const html = `
       <div class="question-content">
+        <h2>※※※大変お手数ですが、一度画面のリロードをお願いいたします。※※※<h2>
         <div class="q_title">
           ${title}
         </div>
         <div class="q_question">
           ${question}
-        </div>
-      </div>
-      <div class="answer">
-        <div class="q_answer">
-          ${answer}
         </div>
       </div>` 
     questions.insertAdjacentHTML('beforeend', html);

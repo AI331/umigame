@@ -1,19 +1,24 @@
-<div class="question">
-  <div id="questions" class="question-content">
-    <div class="q_title">
-      <h2><%= question.title %></h2>
-    </div>
-    <div class="">
-      <h2><%= question.q_content %></h2>
-    </div>
-  </div>
-  
-  <%if current_user.id == @room.user_id %>
-    <div id="answer" class="answer-content">
-      <div class="q_answer">
-        <h2><%= question.q_answer %></h2>
+<div class="questions">
+  <div id="questions">
+  <div class="question-container" id="question-<%= question.id %>">
+    <div class="question-content">
+      <div class="q_title">
+        <h2><%= question.title %></h2>
+      </div>
+      <div class="">
+        <h2><%= question.q_content %></h2>
       </div>
     </div>
-    </div>
-  <% end %>
+    
+    <%if current_user.id == @room.user_id %>
+      <div id="answer" class="answer-content">
+       <h2>解答は以下<h2>
+        <div class="q_answer">
+          <h2><%= question.q_answer %></h2>
+        </div>
+        <%=link_to "別の問題を出題する", room_question_path(question.id), method: :delete %>
+      </div>
+    <% end %>
+  </div>
+  </div>
 </div>

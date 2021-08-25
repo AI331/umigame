@@ -14,11 +14,12 @@ consumer.subscriptions.create("MessageChannel", {
     const CreatedAt = `<p>${data.content.created_at}</p>`;
     const Nickname = `<p>${data.user.nickname}</p>`;
     const HTML = `
-    <div class="message-content">
+    <div class="balloon-left">
+    <div class="upper-message">
       <div class="message-user">
         <p>${Nickname}</p>
       </div>
-      <div class="created-at">
+      <div class="message-date">
         <p>${CreatedAt}</p>
       </div>
     </div>
@@ -26,6 +27,7 @@ consumer.subscriptions.create("MessageChannel", {
       <div class="message-content">
         <p>${MessagesContent}</p>
       </div>
+    </div>
     </div>`
                         
     const messages = document.getElementById('messages');

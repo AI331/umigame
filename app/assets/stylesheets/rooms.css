@@ -92,6 +92,7 @@
 
 h1{
   font-size:1.2rem;
+  font-family: 'Kaisei Decol', serif;
 }
 
 
@@ -107,9 +108,9 @@ small{
   color:#fff;
   text-align: center;
   padding: 20px;
-  position: fixed;
   width: 100vw;
   z-index: 10;
+  font-family: 'Kaisei Decol', serif;
 }
 
 section{
@@ -124,71 +125,103 @@ section{
 
 
 /*========= message & commentのためのCSS ===============*/
+
+
+.question-content{
+  padding: 0.5em 1em;
+  margin: 1em 0;
+  background: #f4f4f4;
+  border-left: solid 6px #5bb7ae;
+  box-shadow: 0px 2px 3px rgba(0, 0, 0, 0.33);
+  margin-left: auto;
+  margin-right: auto;
+  width: 80vw;
+}
+
+.answer-content{
+  padding: 0.5em 1em;
+  margin: 1em 0;
+  background: #f4f4f4;
+  border-left: solid 6px #5bb7ae;
+  box-shadow: 0px 2px 3px rgba(0, 0, 0, 0.33);
+  margin-left: auto;
+  margin-right: auto;
+  width: 80vw;
+}
+.timer {
+
+}
+
+
 .wrapper_room {
   display: flex;
+  background-color:rgba(220,250,250,0.3);
+  margin-left: auto;
+  margin-right: auto;
+  width: 80vw;
+  overflow: scroll;
 }
 
 .message_room {
   height: 600px;
   width: 50vw;
-  overflow: scroll;
+  margin-left: 20;
+  padding-right: 5;
+  text-align     : right; 
+
 }
 
 .comment_room {
   height: 600px;
-  width: 50vh;
+  width: 50vw;
+  padding-left: 5;
+  margin-right: 20;
+  width: 50vw;
 }
 
-
-.balloon5 {
-  width: 100%;
-  margin: 1.5em 0;
-  overflow: hidden;
+.form {
+  background-color:rgba(220,250,250,0.3);
+  margin-left: auto;
+  margin-right: auto;
+  width: 80vw;
 }
 
-.balloon5 .faceicon {
-  float: left;
-  margin-right: -90px;
-  width: 80px;
+.balloon-left {
+  position   : relative;                /* 指定した分だけ相対的に移動 */
+  padding: 10px;                        /* テキストの前後の余白 */
+  background-color: rgba(102, 102, 255, 0.50);       /* 背景色（透明度） */
+  width: 80%;                          /* 吹き出し全体の幅 */
+  left : 60%;                           /* 表示位置 */
+  transform: translate(-50%);           /* 表示位置の調整 */
+  border: solid 3px #6091d3;
+  border-radius:30px;
+}
+.balloon-left:after{
+  border-right: 20px solid rgba(102, 102, 255, 0.50);  /* 吹き出し口の幅・色 */
+  border-top: 10px solid transparent;     /* 吹き出し口の高さ１／２ */
+  border-bottom: 10px solid transparent;  /* 吹き出し口の高さ１／２ */
+  left: -20px;                            /* 吹き出し口の位置調整 */
+  top : 50%;                       /* 吹き出し口の縦位置 */
+  content: "";                       /* コンテンツの挿入 */
+  position: absolute;                /* 親要素を基準 */
 }
 
-.balloon5 .faceicon img{
-  width: 100%;
-  height: auto;
-  border: solid 3px #d7ebfe;
-  border-radius: 50%;
+.balloon-right {
+  position   : relative;                /* 指定した分だけ相対的に移動 */
+  padding: 10px;                        /* テキストの前後の余白 */
+  background-color: rgba(255, 102, 255, 0.50);       /* 背景色（透明度） */
+  width: 80%;                          /* 吹き出し全体の幅 */
+  left : 40%;                           /* 表示位置 */
+  transform: translate(-50%);           /* 表示位置の調整 */
+  border: solid 3px #6091d3;
+  border-radius:30px;
 }
-
-.balloon5 .chatting {
-  width: 100%;
-}
-
-.says {
-  display: inline-block;
-  position: relative; 
-  margin: 5px 0 0 105px;
-  padding: 17px 13px;
-  border-radius: 12px;
-  background-color:#d7ebfe;
-
-
-}
-
-.says:after {
-  content: "";
-  display: inline-block;
-  position: absolute;
-  top: 18px; 
-  left: -24px;
-  border: 12px solid transparent;
-  border-right: 12px solid #d7ebfe;
-}
-
-.says p {
-  margin: 0;
-  padding: 0;
-}
-
-main {
-  background-size:cover;
+.balloon-right:after{
+  border-left: 20px solid rgba(255, 102, 255, 0.50);   /* 吹き出し口の幅・色 */
+  border-top: 10px solid transparent;     /* 吹き出し口の高さ１／２ */
+  border-bottom: 10px solid transparent;  /* 吹き出し口の高さ１／２ */
+  right: -20px;                           /* 吹き出し口の位置調整 */
+  top : 50%;                       /* 吹き出し口の縦位置 */
+  content: "";                       /* コンテンツの挿入 */
+  position: absolute;                /* 親要素を基準 */
 }
