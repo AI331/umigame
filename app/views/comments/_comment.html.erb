@@ -1,18 +1,14 @@
 <div class="balloon-right">
-  <div class="upper-comment">
     <div class="comment-user">
       <!-- 投稿したユーザー名情報を出力する -->
       <%= comment.user.nickname %>
+    </div>
+    <div class="comment-content">
+      <!-- 投稿したメッセージ内容を記述する -->
+      <%= comment.comment %>
     </div>
     <div class="comment-date">
       <!-- 投稿した時刻を出力する -->
       <%= l comment.created_at %>
     </div>
-  </div>
-  <div class="lower-comment">
-    <div class="comment">
-      <!-- 投稿したメッセージ内容を記述する -->
-      <%= comment.comment %>
-    </div>
-  </div>
 </div>

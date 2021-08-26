@@ -131,10 +131,6 @@
 
 /*========= レイアウトのためのCSS ===============*/
 
-.h1_home{
-  font-size:10rem;
-}
-
 h2{
   font-size:1.2rem;
   text-align: center;
@@ -181,6 +177,7 @@ section:nth-child(2n){
   text-shadow: 0 0 15px #666;
   text-align: center;
   font-family: 'Kaisei Decol', serif;
+  font-size:10rem;
 }
 
 
@@ -234,9 +231,10 @@ section:nth-child(2n){
   color         : #ffffff;     /* 文字色     */
   line-height   : 1em;         /* 1行の高さ  */
   transition    : .3s;         /* なめらか変化 */
-  border        : 2px none #000066;    /* 枠の指定 */
-  margin: 0, 30px, 10px, 30px ;
+  border        : none;    /* 枠の指定 */
   font-family: 'Kaisei Decol', serif;
+  margin-top: 10px;
+
 }
 .button:hover {
   box-shadow    : none;        /* カーソル時の影消去 */

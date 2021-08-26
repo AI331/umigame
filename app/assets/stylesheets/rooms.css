@@ -90,13 +90,6 @@
 
 /*========= レイアウトのためのCSS ===============*/
 
-h1{
-  font-size:1.2rem;
-  font-family: 'Kaisei Decol', serif;
-}
-
-
-
 small{
   color:#fff;
   display: block;
@@ -113,10 +106,6 @@ small{
   font-family: 'Kaisei Decol', serif;
 }
 
-section{
-  padding:50px 30px;
-
-}
 
 #footer{
   background:#333;
@@ -125,50 +114,74 @@ section{
 
 
 /*========= message & commentのためのCSS ===============*/
-
+.waiting {
+  color: white;
+}
 
 .question-content{
-  padding: 0.5em 1em;
-  margin: 1em 0;
-  background: #f4f4f4;
-  border-left: solid 6px #5bb7ae;
-  box-shadow: 0px 2px 3px rgba(0, 0, 0, 0.33);
-  margin-left: auto;
-  margin-right: auto;
-  width: 80vw;
+  margin: 2em auto;
+  padding: 1em;
+  width: 90%;
+  color: #555555; /* 文字色 */
+  background-color: #fff; /* 背景色 */
+  box-shadow: 0 0 5px 5px #bce2e8, 0 0 5px 3px #bce2e8 inset; /* 影 */
+  border-radius: 10px; /*角の丸み*/
+  font-family: 'Kaisei Decol', serif;
 }
 
 .answer-content{
-  padding: 0.5em 1em;
-  margin: 1em 0;
-  background: #f4f4f4;
-  border-left: solid 6px #5bb7ae;
-  box-shadow: 0px 2px 3px rgba(0, 0, 0, 0.33);
-  margin-left: auto;
-  margin-right: auto;
-  width: 80vw;
+  margin: 2em auto;
+  padding: 1em;
+  width: 90%;
+  color: #555555; /* 文字色 */
+  background-color: #fff; /* 背景色 */
+  box-shadow: 0 0 5px 5px #bce2e8, 0 0 5px 3px #bce2e8 inset; /* 影 */
+  border-radius: 10px; /*角の丸み*/
+  font-family: 'Kaisei Decol', serif;
+}
+
+.top {
 }
 .timer {
-
+  position: fixed;
+  border-radius:50%;
+  display: flex;
+  font-family: 'Kaisei Decol', serif;
+  background-color:rgba(196, 235, 26, 0.589);
+  width: 200px;
+  height: 200px;
+  align-items: center;
+  justify-content: center;
+  z-index: 5; 
+}
+.timer-text {
+  text-align: center;
+  width: 100px;
 }
 
+.timer-form{
+  text-align: center;
+}
+
+.timer-button {
+  
+}
 
 .wrapper_room {
   display: flex;
   background-color:rgba(220,250,250,0.3);
   margin-left: auto;
   margin-right: auto;
-  width: 80vw;
-  overflow: scroll;
+  padding-top: 5px;
+  width: 90vw;
+  overflow: auto;
 }
 
 .message_room {
   height: 600px;
   width: 50vw;
   margin-left: 20;
-  padding-right: 5;
-  text-align     : right; 
-
+  padding-right: 5; 
 }
 
 .comment_room {
@@ -180,24 +193,49 @@ section{
 }
 
 .form {
-  background-color:rgba(220,250,250,0.3);
   margin-left: auto;
   margin-right: auto;
+  width: 90vw;
+  height: 20vh;
+  font-family: 'Kaisei Decol', serif;
+}
+.form-input {
+  display: flex;
   width: 80vw;
+  line-height: 3em;
 }
 
+.form-button{
+  display: inline-block;
+  text-decoration: none;
+  font-size: 14pt;
+  text-align: center;
+  cursor: pointer;
+  padding: 12px 30px;
+  background: #00817e;
+  color: #ffffff;
+  transition: .3s;
+  border: none;
+  font-family: 'Kaisei Decol', serif;
+}
+
+
+
+
 .balloon-left {
+  margin-bottom: 10px;
   position   : relative;                /* 指定した分だけ相対的に移動 */
   padding: 10px;                        /* テキストの前後の余白 */
-  background-color: rgba(102, 102, 255, 0.50);       /* 背景色（透明度） */
-  width: 80%;                          /* 吹き出し全体の幅 */
-  left : 60%;                           /* 表示位置 */
+  background-color: rgba(255, 255, 255, 1);       /* 背景色（透明度） */
+  width: 90%;                          /* 吹き出し全体の幅 */
+  left : 55%;                           /* 表示位置 */
   transform: translate(-50%);           /* 表示位置の調整 */
-  border: solid 3px #6091d3;
+  border: none 3px white;
   border-radius:30px;
+  box-shadow: 0 0 5px 2px#bce2e8, 0 0 5px 3px rgba(36, 192, 140, 1) inset; /* 影 */
 }
 .balloon-left:after{
-  border-right: 20px solid rgba(102, 102, 255, 0.50);  /* 吹き出し口の幅・色 */
+  border-right: 20px solid rgb(36, 192, 140, 0.8);  /* 吹き出し口の幅・色 */
   border-top: 10px solid transparent;     /* 吹き出し口の高さ１／２ */
   border-bottom: 10px solid transparent;  /* 吹き出し口の高さ１／２ */
   left: -20px;                            /* 吹き出し口の位置調整 */
@@ -207,21 +245,68 @@ section{
 }
 
 .balloon-right {
+  margin-bottom: 10px;
   position   : relative;                /* 指定した分だけ相対的に移動 */
   padding: 10px;                        /* テキストの前後の余白 */
-  background-color: rgba(255, 102, 255, 0.50);       /* 背景色（透明度） */
-  width: 80%;                          /* 吹き出し全体の幅 */
-  left : 40%;                           /* 表示位置 */
+  background-color: rgba(255, 255, 255, 1);       /* 背景色（透明度） */
+  width: 90%;                          /* 吹き出し全体の幅 */
+  left : 45%;                           /* 表示位置 */
   transform: translate(-50%);           /* 表示位置の調整 */
-  border: solid 3px #6091d3;
+  border: none;
   border-radius:30px;
+  box-shadow: 0 0 5px 2px #bce2e8, 0 0 5px 3px orange inset; /* 影 */
 }
 .balloon-right:after{
-  border-left: 20px solid rgba(255, 102, 255, 0.50);   /* 吹き出し口の幅・色 */
+  border-left: 20px solid rgba(255, 200, 134, 1);   /* 吹き出し口の幅・色 */
   border-top: 10px solid transparent;     /* 吹き出し口の高さ１／２ */
   border-bottom: 10px solid transparent;  /* 吹き出し口の高さ１／２ */
   right: -20px;                           /* 吹き出し口の位置調整 */
   top : 50%;                       /* 吹き出し口の縦位置 */
   content: "";                       /* コンテンツの挿入 */
   position: absolute;                /* 親要素を基準 */
+}
+
+.message-content {
+  font-size: 20px;
+  font-family: 'Kaisei Decol', serif;
+}
+
+.message-user {
+  font-size: 16px;
+  font-family: 'Kaisei Decol', serif;
+}
+
+.message-date {
+  font-size: 10px;
+  font-family: 'Kaisei Decol', serif;
+  text-align: right;
+}
+
+.comment-content {
+  font-size: 20px;
+  font-family: 'Kaisei Decol', serif;
+}
+
+.comment-user {
+  font-size: 16px;
+  font-family: 'Kaisei Decol', serif;
+}
+
+.comment-date {
+  font-size: 10px;
+  font-family: 'Kaisei Decol', serif;
+  text-align: right;
+}
+
+
+.quiz-select {
+	position: relative;
+	width: 90%;
+	margin: 2em auto;
+	text-align: center;
+}
+
+.select-form {
+  font-size: 20px;
+  font-family: 'Kaisei Decol', serif;
 }

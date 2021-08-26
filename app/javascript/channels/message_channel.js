@@ -15,18 +15,14 @@ consumer.subscriptions.create("MessageChannel", {
     const Nickname = `<p>${data.user.nickname}</p>`;
     const HTML = `
     <div class="balloon-left">
-    <div class="upper-message">
       <div class="message-user">
         <p>${Nickname}</p>
       </div>
-      <div class="message-date">
-        <p>${CreatedAt}</p>
-      </div>
-    </div>
-    <div class="lower-message">
       <div class="message-content">
         <p>${MessagesContent}</p>
       </div>
+      <div class="message-date">
+      <p>${CreatedAt}</p>
     </div>
     </div>`
                         

@@ -29,3 +29,4 @@ $(window).on('load',function(){
                       _this.find('.yycountdown-box').css({color:'red'});
                     }
   });
+  

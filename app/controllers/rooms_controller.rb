@@ -1,5 +1,5 @@
 class RoomsController < ApplicationController
-  layout 'home'
+  before_action :authenticate_user!, except: :index
   before_action :set_search, only: %i[index search]
   before_action :search_quiz, only: :show
 

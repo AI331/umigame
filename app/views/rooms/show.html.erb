@@ -8,6 +8,20 @@
 
     <header id="header">
     <h1><%= "ルーム名：#{@room.name}" %></h1>
+    <!--タイマー機能 -->
+    
+    <div class="timer">
+      <div class="timer-main">
+        <form name="timer" class="timer-form">
+        <input type="text" value="" class="timer-text">分
+        <input type="text" value="" class="timer-text">秒<br>
+        <input type="button" value="スタート" onclick="cntStart()" class="timer-button">
+        <input type="button" value="ストップ" onclick="cntStop()" class="timer-button">
+        </form>
+      </div>
+    </div>
+    
+    <!--タイマー機能 -->  
     <div class="">
     <%= link_to "トップページへ戻る", root_url, data: {turbolinks: false} %>
     </div>
@@ -19,37 +33,34 @@
     </header>
 
   <main>
-    <section class="quiz">
-    <!--タイマー機能 -->
-    <div class="timer">
-      <form name="timer">
-      <input type="text" value="">分
-      <input type="text" value="">秒<br>
-      <input type="button" value="スタート" onclick="cntStart()">
-      <input type="button" value="ストップ" onclick="cntStop()">
-      </form>
-    </div>
-    <!--タイマー機能 -->
-    
-    <div>      
+    <section class="top">
      <!-- 問題出題 -->
+     <div class="quiz-select">
      <%if current_user.id == @room.user_id %>
-        <%= form_with model: [@room, @question], local: true do |f| %>
+        <%= form_with model: [@room, @question], class: 'select-form' do |f| %>
         <div id="q_select">
-          <%= f.collection_select :quiz_id, @quizzes, :id, :title, {prompt: "問題を選択してください"} %>
-          <%= f.submit '問題を出題する' %>
+          <%= f.collection_select :quiz_id, @quizzes, :id, :title, {prompt: "問題を選択してください", class: 'select-form'} %>
+          <br>
+          <%= f.submit '問題を出題する', class: "button" %>
         </div>
         <% end %>
       <%end%>
+    </div>
      <!-- 問題出題 -->
 
+    
+    </section>
      <!-- 問題表示 -->
+    <section class="quiz">
       <div id="question" class="question">
+        <%if @room.questions.ids.blank?%>
+          <h2 class="waiting">問題が出題されるまで少々お待ちください<h2>
+        <%end%>
         <%= render partial: 'questions/question', collection: @questions %>
       <div>
      <!-- 問題表示 -->
     </div>
-    <!--/area2--></section>
+    </section>
     <section>
       <div class="wrapper_room">
 
@@ -60,37 +71,38 @@
         </div>
 
         <div class="comment_room">
-          <div id="comments" class="">
+          <div id="comments" class="right-box">
             <%= render partial: 'comments/comment', collection: @comments %>
           </div>
         </div>
       </div>
-    <!--/area3--></section>
+    </section>
 
     <section>
     <%if current_user.id == @room.user_id %>
-
-      <div>
       <div class="form">
-        <h2>コメント入力フォーム</h2>
-        <%= form_with model: [@room, @comment], class: '' do |f| %>
-            <%= f.text_field :comment, class: 'form-comment', placeholder: 'YESかNOで返信してください' %>
-          <%= f.submit '送信', class: 'form-submit' %>
+        <%= form_with model: [@room, @comment], class: 'form-input' do |f| %>
+          <div class="form-field">
+            <%= f.text_field :comment, class: 'form-input', placeholder: 'YESかNOで返信してください' %>
+          </div>
+          <div class="form-submit">
+            <%= f.submit '送信', class: 'form-button' %>
+          </div>
         <% end %> 
       </div>
-      </div>
-
     <%else%>
-    <div class="form">
-      <h2>メッセージ入力フォーム</h2>
-      <%= form_with model: [@room, @message], class: '' do |f| %>
-          <%= f.text_field :messages_content, class: 'form-message', placeholder: 'YESかNOで答えられる質問を入力してください' %>
-        <%= f.submit '送信', class: 'form-submit' %>
-      <% end %>
-    </div>
+      <div class="form">
+        <%= form_with model: [@room, @message], class: 'form-input' do |f| %>
+          <div class="form-field">
+            <%= f.text_field :messages_content, class: 'form-input', placeholder: 'YESかNOで答えられる質問を入力してください' %>
+          </div>
+          <div class="form-submit">
+          <%= f.submit '送信', class: 'form-button' %>
+        <% end %>
+      </div>
     <% end %>
-    <!--/area4--></section>
-    <!--/contaier-->
-  <!--/main--></main>
+    </section>
+  </main>
   </div> <!--/container-->
 </body>
+
