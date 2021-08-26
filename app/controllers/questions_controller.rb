@@ -9,9 +9,7 @@ class QuestionsController < ApplicationController
 
   def destroy
     @question = Question.find(params[:room_id])
-    if @question.destroy
-      ActionCable.server.broadcast 'delete_channel', content: @question
-    end
+    ActionCable.server.broadcast 'delete_channel', content: @question if @question.destroy
   end
 
   private
