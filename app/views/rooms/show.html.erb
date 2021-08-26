@@ -6,10 +6,32 @@
 
   <div id="container_room">
 
-    <header id="header">
-    <h1><%= "ルーム名：#{@room.name}" %></h1>
+    <header id="header" >
+      <div class="header-logo-menu">
+        <div id="nav-drawer">
+          <input id="nav-input" type="checkbox" class="nav-unshown">
+          <label id="nav-open" for="nav-input"><span></span></label>
+          <label class="nav-unshown" id="nav-close" for="nav-input"></label>
+          <div id="nav-content">
+            <ul class="top">
+              <li class="top-menu">
+              <%= link_to "トップページへ戻る", root_url, data: {turbolinks: false} %>
+              </li>
+              <li class="top-menu">
+              <%= link_to "ログアウト", destroy_user_session_path, method: :delete, data: {turbolinks: false} %>
+              </li>
+                <%if current_user.id == @room.user_id %>
+                  <li class="top-menu">
+                    <%= link_to "ルームを削除する", room_path(@room), method: :delete, class:"question-destroy" %>
+                  </li>
+                <% end %>
+            </ul>
+          </div>
+        </div>
+
+        <div class="logo-area"><%= "#{@room.name}" %></div>
+      </div>
     <!--タイマー機能 -->
-    
     <div class="timer">
       <div class="timer-main">
         <form name="timer" class="timer-form">
@@ -20,28 +42,22 @@
         </form>
       </div>
     </div>
-    
-    <!--タイマー機能 -->  
-    <div class="">
-    <%= link_to "トップページへ戻る", root_url, data: {turbolinks: false} %>
-    </div>
-    <%if current_user.id == @room.user_id %>
-    <div class="">
-      <%= link_to "ルームを削除する", room_path(@room), method: :delete, class:"question-destroy" %>
-    <% end %>
-    </div>
+    <!--タイマー機能 --> 
     </header>
 
+
+
+
   <main>
-    <section class="top">
+    <section>
      <!-- 問題出題 -->
      <div class="quiz-select">
      <%if current_user.id == @room.user_id %>
         <%= form_with model: [@room, @question], class: 'select-form' do |f| %>
         <div id="q_select">
-          <%= f.collection_select :quiz_id, @quizzes, :id, :title, {prompt: "問題を選択してください", class: 'select-form'} %>
-          <br>
-          <%= f.submit '問題を出題する', class: "button" %>
+            <%= f.collection_select :quiz_id, @quizzes, :id, :title, {prompt: "問題を選択してください", class: 'select-form'} %>
+            <br>
+            <%= f.submit '問題を出題する', class: "button" %>
         </div>
         <% end %>
       <%end%>

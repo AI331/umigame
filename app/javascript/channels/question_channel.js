@@ -12,7 +12,6 @@ consumer.subscriptions.create("QuestionChannel", {
   received(data) {
     const title = `<h2>${data.content.title}</h2>`;
     const question = `<h2>${data.content.q_content}</h2>`;
-    const answer = `<h2>${data.content.q_answer}</h2>`;
     const questions = document.getElementById('question');
     const qSelect =document.getElementById('q_select');
     const html = `
