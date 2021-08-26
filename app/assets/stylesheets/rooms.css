@@ -219,7 +219,11 @@ small{
   font-family: 'Kaisei Decol', serif;
 }
 
-
+.form-button:hover {
+  box-shadow    : none;        /* カーソル時の影消去 */
+  color         : #000066;     /* 背景色     */
+  background    : orange;     /* 文字色     */
+}
 
 
 .balloon-left {
