@@ -8,6 +8,7 @@
 
     <header id="header" >
       <div class="header-logo-menu">
+      <div class="logo-area"><%= "#{@room.name}" %></div>
         <div id="nav-drawer">
           <input id="nav-input" type="checkbox" class="nav-unshown">
           <label id="nav-open" for="nav-input"><span></span></label>
@@ -28,8 +29,7 @@
             </ul>
           </div>
         </div>
-
-        <div class="logo-area"><%= "#{@room.name}" %></div>
+        
       </div>
     <!--タイマー機能 -->
     <div class="timer">
@@ -120,5 +120,6 @@
     </section>
   </main>
   </div> <!--/container-->
+  <footer id="fotter" >
 </body>
 

@@ -1,3 +1,4 @@
 class Quiz < ApplicationRecord
-  belongs_to :room
+  has_many :room_quizzes
+  has_many :rooms, through: :room_quizzes
 end

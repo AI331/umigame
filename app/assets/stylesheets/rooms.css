@@ -89,6 +89,8 @@
 }
 
 /*========= レイアウトのためのCSS ===============*/
+
+/*========= ハンバーガーメニュー ===============*/
 #nav-drawer {
   position: relative;
 }
@@ -209,41 +211,7 @@ small{
   font-size: 20px;
   margin: 2em auto;
 }
-
-#footer{
-  background:#333;
-  padding:20px;
-}
-
-
-/*========= message & commentのためのCSS ===============*/
-.waiting {
-  color: white;
-}
-
-.question-content{
-  margin: 2em auto;
-  padding: 1em;
-  width: 90%;
-  color: #555555; /* 文字色 */
-  background-color: #fff; /* 背景色 */
-  box-shadow: 0 0 5px 5px #bce2e8, 0 0 5px 3px #bce2e8 inset; /* 影 */
-  border-radius: 10px; /*角の丸み*/
-  font-family: 'Kaisei Decol', serif;
-}
-
-.answer-content{
-  margin: 2em auto;
-  padding: 1em;
-  width: 90%;
-  color: #555555; /* 文字色 */
-  background-color: #fff; /* 背景色 */
-  box-shadow: 0 0 5px 5px #bce2e8, 0 0 5px 3px #bce2e8 inset; /* 影 */
-  border-radius: 10px; /*角の丸み*/
-  font-family: 'Kaisei Decol', serif;
-}
-
-
+/*========= ハンバーガーメニュー ===============*/
 
 .timer {
   position: fixed;
@@ -272,6 +240,33 @@ small{
   background-color: rgb(51,51,51);
   color: white;
   border: none;
+}
+
+/*========= message & commentのためのCSS ===============*/
+.waiting {
+  color: white;
+}
+
+.question-content{
+  margin: 2em auto;
+  padding: 1em;
+  width: 90%;
+  color: #555555; /* 文字色 */
+  background-color: #fff; /* 背景色 */
+  box-shadow: 0 0 5px 5px #bce2e8, 0 0 5px 3px #bce2e8 inset; /* 影 */
+  border-radius: 10px; /*角の丸み*/
+  font-family: 'Kaisei Decol', serif;
+}
+
+.answer-content{
+  margin: 2em auto;
+  padding: 1em;
+  width: 90%;
+  color: #555555; /* 文字色 */
+  background-color: #fff; /* 背景色 */
+  box-shadow: 0 0 5px 5px #bce2e8, 0 0 5px 3px #bce2e8 inset; /* 影 */
+  border-radius: 10px; /*角の丸み*/
+  font-family: 'Kaisei Decol', serif;
 }
 
 .wrapper_room {
