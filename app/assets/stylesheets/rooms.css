@@ -242,6 +242,13 @@ small{
   border: none;
 }
 
+.timer-button:hover {
+  box-shadow    : none;        /* カーソル時の影消去 */
+  color         : #000066;     /* 背景色     */
+  background    : orange;     /* 文字色     */
+}
+
+
 /*========= message & commentのためのCSS ===============*/
 .waiting {
   color: white;
