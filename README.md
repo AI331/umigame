@@ -50,6 +50,13 @@
 - コメントで長文を入力すると、画面サイズによっては質問と解答の幅がずれてしまう。
 - 問題削除時に、リロードをしていないとリアルタイムに問題が消えず、残ってしまう。
 
+# 使用技術
+Ruby/RubyonRails/JavaScript/jQuery/MySQL/SequelPro/MariaDB</br>
+AWS(EC2)/Nginx/Unicorn/Github/Github Desktop/Capistrano/</br>
+devise/action_cable/ransack/pry-rails/
+
+
+
 
 # テーブル設計
 
