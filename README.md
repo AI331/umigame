@@ -11,10 +11,27 @@
 # URL
 - http://35.75.250.100/
 
-# トップページ
+# 機能紹介
+## 新規登録 → ログアウト → トップページ
 ![新規登録・ログアウト](https://user-images.githubusercontent.com/84889081/131308061-2cad1cff-e15e-4b49-9386-426acf4ac6cd.gif)
 
+## ログイン
+![ログイン](https://user-images.githubusercontent.com/84889081/131308496-4adb0387-72a4-41f0-9245-78da6f00693b.gif)
 
+## ルーム作成
+![ルーム作成](https://user-images.githubusercontent.com/84889081/131308547-4383b5d4-4f62-4dfc-982b-4861d6f5407a.gif)
+
+## ルーム検索 → 参加
+![ルーム参加](https://user-images.githubusercontent.com/84889081/131308599-f0dd8f65-15e7-4a21-bc40-5ed56c47363a.gif)
+
+## 問題出題
+![問題出題](https://user-images.githubusercontent.com/84889081/131308673-0d5b26d3-d90b-4ec6-b151-588141b42da5.gif)
+
+## コメント（質問・返信）
+![コメント](https://user-images.githubusercontent.com/84889081/131308727-572da96c-2b18-4188-be84-ccb5089579d7.gif)
+
+## 問題削除
+![問題削除](https://user-images.githubusercontent.com/84889081/131308786-7079250c-a293-458e-850e-2e760c8e7490.gif)
 
 
 
